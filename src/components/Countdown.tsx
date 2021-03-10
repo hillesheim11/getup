@@ -15,37 +15,57 @@ export function Countdown() {
     const [minutesLeft, minutesRight] = String(minutes).padStart(2, '0').split('');
     const [secondsLeft, secondsRight] = String(seconds).padStart(2, '0').split('');
 
-    let clock
-
     useEffect(() => {
-        clock = $('.timer').FlipClock({
-            countdown: true,
-            autoStart: false,
-            // language: 'portuguese',
-            // minimumDigits: 9,
-            // running: true,
-            // timer: true,
-        });
 
-        clock.setTime(25 * 60)
-        // clock.start()
+        let liBefore1 = createListItem('flip-clock-before', secondsRight)
+        let liAfter1 = createListItem('flip-clock-active', secondsRight)
+        document.getElementById("minutesLeft").appendChild(liBefore1)
+        document.getElementById("minutesLeft").appendChild(liAfter1)
 
+        let liBefore2 = createListItem('flip-clock-before', secondsRight)
+        let liAfter2 = createListItem('flip-clock-active', secondsRight)
+        document.getElementById("minutesRight").appendChild(liBefore2)
+        document.getElementById("minutesRight").appendChild(liAfter2)
 
-        let liBefore = createListItem('flip-clock-before', secondsRight)
-        let liAfter = createListItem('flip-clock-active', secondsRight)
-        document.getElementById("secondsRight").appendChild(liBefore)
-        document.getElementById("secondsRight").appendChild(liAfter)
+        let liBefore3 = createListItem('flip-clock-before', secondsRight)
+        let liAfter3 = createListItem('flip-clock-active', secondsRight)
+        document.getElementById("secondsLeft").appendChild(liBefore3)
+        document.getElementById("secondsLeft").appendChild(liAfter3)
 
+        let liBefore4 = createListItem('flip-clock-before', secondsRight)
+        let liAfter4 = createListItem('flip-clock-active', secondsRight)
+        document.getElementById("secondsRight").appendChild(liBefore4)
+        document.getElementById("secondsRight").appendChild(liAfter4)
     }, [])
 
     useEffect(() => {
-        let div = document.getElementById("secondsRight")
-        let before = div.getElementsByClassName("flip-clock-before")
-        console.log(before);
-
-
-        // document.getElementById("secondsRight").appendChild(li)
+        refreshDigit(document.getElementById("secondsRight"), secondsRight)
     }, [secondsRight])
+
+    useEffect(() => {
+        refreshDigit(document.getElementById("secondsLeft"), secondsLeft)
+    }, [secondsLeft])
+
+    useEffect(() => {
+        refreshDigit(document.getElementById("minutesRight"), minutesRight)
+    }, [minutesRight])
+
+    useEffect(() => {
+        refreshDigit(document.getElementById("minutesLeft"), minutesLeft)
+    }, [minutesLeft])
+
+    function refreshDigit(element: HTMLElement, digit: string) {
+        let before = element.getElementsByClassName('flip-clock-before')[0]
+        let after = element.getElementsByClassName('flip-clock-active')[0]
+        element.removeChild(before)
+
+        if (after) {
+            after.setAttribute('class', 'flip-clock-before')
+        }
+
+        let liAfter = createListItem('flip-clock-active', digit)
+        element.appendChild(liAfter)
+    }
 
     function createListItem(css: string, value: string) {
         let li = document.createElement('li')
@@ -84,132 +104,22 @@ export function Countdown() {
         return li;
     }
 
-    function start() {
-        clock.start();
-        startCountdown();
-    }
-
-    function stop() {
-        clock.stop();
-        resetCountdown();
-    }
-
     return (
         <div>
             <div className="timer"></div>
             {/* <div className={styles.countdownContainer}> */}
             <div className="flip-clock-wrapper">
                 <div>
-                    <ul id="minutesLeft" className="flip "> {/* minutesLeft */}
-                        <li className="flip-clock-before">
-                            <a href="#">
-                                <div className="up">
-                                    <div className="shadow"></div>
-                                    <div className="inn">9</div>
-                                </div>
-                                <div className="down">
-                                    <div className="shadow"></div>
-                                    <div className="inn">9</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="flip-clock-active">
-                            <a href="#">
-                                <div className="up">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{minutesLeft}</div>
-                                </div>
-                                <div className="down">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{minutesLeft}</div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id="minutesRight" className="flip "> {/* minutesRight */}
-                        <li className="flip-clock-before">
-                            <a href="#">
-                                <div className="up">
-                                    <div className="shadow"></div>
-                                    <div className="inn">9</div>
-                                </div>
-                                <div className="down">
-                                    <div className="shadow"></div>
-                                    <div className="inn">9</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="flip-clock-active">
-                            <a href="#">
-                                <div className="up">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{minutesRight}</div>
-                                </div>
-                                <div className="down">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{minutesRight}</div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                    <ul id="minutesLeft" className="flip play"> {/* minutesLeft */} </ul>
+                    <ul id="minutesRight" className="flip play"> {/* minutesRight */} </ul>
                 </div>
                 <span className="flip-clock-divider minutes">
                     <span className="flip-clock-dot top" />
                     <span className="flip-clock-dot bottom" />
                 </span>
                 <div>
-                    <ul id="secondsLeft" className="flip play"> {/* secondsLeft */}
-                        <li className="flip-clock-before">
-                            <a href="#">
-                                <div className="up">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{String(Number(secondsLeft) + 1)}</div>
-                                </div>
-                                <div className="down">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{String(Number(secondsLeft) + 1)}</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="flip-clock-active">
-                            <a href="#">
-                                <div className="up">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{secondsLeft}</div>
-                                </div>
-                                <div className="down">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{secondsLeft}</div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id="secondsRight" className="flip play"> {/* secondsRight */}
-                        {/* <li className="flip-clock-before">
-                            <a href="#">
-                                <div className="up">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{Number(secondsRight) + 1}</div>
-                                </div>
-                                <div className="down">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{Number(secondsRight) + 1}</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="flip-clock-active">
-                            <a href="#">
-                                <div className="up">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{secondsRight}</div>
-                                </div>
-                                <div className="down">
-                                    <div className="shadow"></div>
-                                    <div className="inn">{secondsRight}</div>
-                                </div>
-                            </a>
-                        </li> */}
-                    </ul>
+                    <ul id="secondsLeft" className="flip play"> </ul>
+                    <ul id="secondsRight" className="flip play"> </ul>
                 </div>
             </div>
 
@@ -226,7 +136,7 @@ export function Countdown() {
                         <button
                             type="button"
                             className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
-                            onClick={stop}
+                            onClick={resetCountdown}
                         >
                             Abandonar ciclo
                             <img src="icons/close.svg"></img>
@@ -235,7 +145,7 @@ export function Countdown() {
                         <button
                             type="button"
                             className={styles.countdownButton}
-                            onClick={start}
+                            onClick={startCountdown}
                         >
                             Iniciar um ciclo
                         </button>
