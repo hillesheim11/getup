@@ -80,6 +80,7 @@ export function Countdown() {
         li.setAttribute('class', css)
 
         a.setAttribute('href', '#')
+        a.setAttribute('tabIndex', '-1')
 
         divUp.setAttribute('class', 'up')
         divUpShadow.setAttribute('class', 'shadow')
@@ -106,9 +107,7 @@ export function Countdown() {
 
     return (
         <div>
-            <div className="timer"></div>
-            {/* <div className={styles.countdownContainer}> */}
-            <div className="flip-clock-wrapper">
+            <div className={"flip-clock-wrapper"}>
                 <div>
                     <ul id="minutesLeft" className="flip play"> {/* minutesLeft */} </ul>
                     <ul id="minutesRight" className="flip play"> {/* minutesRight */} </ul>
@@ -123,35 +122,37 @@ export function Countdown() {
                 </div>
             </div>
 
-            {hasFinished ? (
-                <button
-                    disabled
-                    className={styles.countdownButton}
-                >
-                    Ciclo encerrado
-                </button>
-            ) : (<>
-                { isActive
-                    ? (
-                        <button
-                            type="button"
-                            className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
-                            onClick={resetCountdown}
-                        >
-                            Abandonar ciclo
-                            <img src="icons/close.svg"></img>
-                        </button>
-                    ) : (
-                        <button
-                            type="button"
-                            className={styles.countdownButton}
-                            onClick={startCountdown}
-                        >
-                            Iniciar um ciclo
-                        </button>
-                    )
-                }
-            </>)}
-        </div>
+            {
+                hasFinished ? (
+                    <button
+                        disabled
+                        className={styles.countdownButton}
+                    >
+                        Ciclo encerrado
+                    </button>
+                ) : (<>
+                    { isActive
+                        ? (
+                            <button
+                                type="button"
+                                className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
+                                onClick={resetCountdown}
+                            >
+                                Abandonar ciclo
+                                <img src="icons/close.svg"></img>
+                            </button>
+                        ) : (
+                            <button
+                                type="button"
+                                className={styles.countdownButton}
+                                onClick={startCountdown}
+                            >
+                                Iniciar um ciclo
+                            </button>
+                        )
+                    }
+                </>)
+            }
+        </div >
     );
 }
