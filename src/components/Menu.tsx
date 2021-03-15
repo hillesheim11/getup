@@ -11,19 +11,19 @@ export function Menu() {
     return (
         <div className="menuContainer">
             <div className="logo">
-                <Link href="/">
+                <Link href="/" shallow={true}>
                     <a id="/" onClick={changePage}>
                         <img id="/" src="icons/logo-menu.svg" alt="Home" />
                     </a>
                 </Link>
             </div>
             <div className="mainButton">
-                <Link href="/">
+                <Link href="/" shallow={true}>
                     <a id="/" onClick={changePage}>
                         <img id="/" src={`icons/home${page === "/" ? "-active" : ""}.svg`} alt="Challenges" />
                     </a>
                 </Link>
-                <Link href="/ranking">
+                <Link href="/ranking" shallow={true}>
                     <a id="/ranking" onClick={changePage}>
                         <img id="/ranking" src={`icons/ranking${page === "/ranking" ? "-active" : ""}.svg`} alt="Ranking" />
                     </a>
