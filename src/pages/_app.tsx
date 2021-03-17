@@ -2,10 +2,11 @@
 import { Menu } from "../components/Menu";
 import "../styles/global.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
+
     return (
         <>
-            <Menu />
+            <Menu url={router.pathname} />
             <Component {...pageProps} />
         </>
     )

@@ -1,8 +1,8 @@
 import { BaseSyntheticEvent, useState } from 'react'
 import Link from 'next/link'
 
-export function Menu() {
-    const [page, setPage] = useState('/')
+export function Menu({ url }) {
+    const [page, setPage] = useState(url)
 
     function changePage(e: BaseSyntheticEvent) {
         setPage(e.target.id)
