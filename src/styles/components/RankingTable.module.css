@@ -1,0 +1,55 @@
+.rankingContainer {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rankingContainer img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+/* .rankingContainer span {
+    margin-right: 2em;
+    width: 10em;
+} */
+
+.rankingContainer div {
+    margin-left: 1.5rem;
+}
+
+.rankingContainer strong {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--title);
+}
+
+.userContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: .5em 0;
+}
+
+.image {
+    width: 5em;
+    padding-left: 1em;
+}
+
+.name {
+    width: 10em;
+}
+
+.level {
+    width: 5em;
+    text-align: center;
+}
+
+.experiencia {
+    width: 8em; 
+    text-align: center;
+}
