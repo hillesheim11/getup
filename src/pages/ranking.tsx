@@ -22,14 +22,18 @@ export default function Ranking(props: RankingProps) {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+    const { username } = ctx.req.cookies
+
 
     const res = await fetch("https://randomuser.me/api/?results=6")
     const users = await res.json()
 
     return {
         props: {
-            users
+            users,
+            username: username || null
         }
     }
 }
