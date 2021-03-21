@@ -1,0 +1,79 @@
+.container {
+    height: 100vh;
+    padding: 2.5rem 10rem;
+
+    background-color: var(--blue);
+    color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.container section {
+    width: 420px;
+}
+
+.container h1 {
+    padding-bottom: 80px;
+    font-size: 4em;
+}
+
+.container h1 b{
+    color: var(--green);
+}
+
+.container .github {
+    display: flex;
+    align-items: center;
+    color: var(--text-highlight);
+    padding: 24px 0px;
+}
+
+.container .github span{
+    padding-left: 16px;
+}
+
+.container input{
+    width: 100%;
+    height: 80px;
+    padding-left: 32px;
+    padding-right: 112px;
+    margin: 0px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
+    color: var(--white);
+    background-image: linear-gradient(to right, var(--blue-dark),  var(--blue));
+}
+
+.container input:hover,
+.container input:focus{
+    border: solid 1.5px #414AA3;
+    padding-left: 30.5px;
+}
+
+.container ::placeholder{
+    color: var(--text-highlight);
+}
+
+.container button {
+    position: relative;
+    top: -80px;
+    right: -340px;
+    width: 80px;
+    height: 80px;
+    border: none;
+    outline: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    background-color: var(--green);
+}
+
+.container :disabled {
+    cursor: default;
+    background-color: var(--blue-dark);
+}
