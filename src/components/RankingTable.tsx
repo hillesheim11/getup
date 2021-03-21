@@ -12,62 +12,45 @@ export function RankingTable(props: RankingProps) {
 
     const experience = (level: number) => Math.pow((level + 1) * 4, 2)
 
-    const colorRanking = (position: number) => {
-        switch (position) {
-            case 1:
-                return '#FABC06'
-            case 2:
-                return '#999D99'
-            case 3:
-                return '#AD4F01'
-            default:
-                return '#000'
-        }
-    }
-
     const tableRow = () => {
 
         return (
             props.users.results.map((user, id) => (
-                <div key={id} className={styles.userContainer}>
+                <article key={id}>
                     <span>
-                        <strong style={{ color: colorRanking(id + 1) }}>
-                            #{id + 1}
-                        </strong>
+                        {id + 1}
                     </span>
-                    <span className={styles.image}>
+                    <span className={styles.profileContainer}>
                         <img src={user.picture.medium} alt="" />
+                        <div>
+                            <strong>
+                                {user.name.first.concat(' ', user.name.last)}
+                            </strong>
+                            <p>
+                                <img src="icons/level.svg" alt="Level" />
+                                Level {generateLevel(id).toFixed()}
+                            </p>
+                        </div>
                     </span>
-                    <span className={styles.name}>
-                        {/* <strong> */}
-                        {user.name.first.concat(' ', user.name.last)}
-                        {/* </strong> */}
-                    </span>
-                    <span className={styles.level}>{generateLevel(id).toFixed()}</span>
-                    <span className={styles.experiencia}>{experience(generateLevel(id)).toFixed()}</span>
-                </div>
+                    <span> <b>{(generateLevel(id) * 3).toFixed()}</b> completados</span>
+                    <span> <b>{experience(generateLevel(id)).toFixed()}</b> xp</span>
+                </article>
             ))
         )
     }
 
     return (
         <div className={styles.rankingContainer}>
-            <div>
-                <div className={styles.userContainer}>
-                    <span style={{ width: '1.5em' }}></span>
-                    <span className={styles.image}></span>
-                    <span className={styles.name}>
-                        <strong>Usuário</strong>
-                    </span>
-                    <span className={styles.level}>
-                        <strong>Level</strong>
-                    </span>
-                    <span className={styles.experiencia}>
-                        <strong>Experiência</strong>
-                    </span>
+            <section>
+                <h1>Leaderboard</h1>
+                <div>
+                    <h2>POSIÇÃO</h2>
+                    <h2 style={{ marginRight: '31.5em' }}>USUÁRIO</h2>
+                    <h2 style={{ marginRight: '9.85em' }}>DESAFIOS</h2>
+                    <h2>EXPERIÊNCIA</h2>
                 </div>
                 {tableRow()}
-            </div>
+            </section>
         </div>
     )
 }
