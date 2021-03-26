@@ -1,17 +1,18 @@
 .container {
     height: 100vh;
-    padding: 2.5rem 10rem;
+    /* padding: 2.5rem 10rem; */
 
     background-color: var(--blue);
     color: var(--white);
 
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    /* align-items: flex-end; */
+    /* justify-content: space-between; */
 }
 
-.container section {
+.container section:last-child {
     width: 420px;
 }
 

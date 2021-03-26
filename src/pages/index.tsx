@@ -62,6 +62,9 @@ export default function Challenge(props: ChallengeProps) {
     return (
         <div className={stylesLogin.container}>
             <section>
+                <img src="logo-login.svg" alt="Logo" />
+            </section>
+            <section>
                 <h1>
                     get<b>.</b>up
                 </h1>
