@@ -1,6 +1,6 @@
 # Get.up [![Netlify Status](https://api.netlify.com/api/v1/badges/b31eca34-62e4-4fcf-a76b-f7e540f3a4c5/deploy-status)](https://app.netlify.com/sites/getup/deploys)
 
-Aplicativo de exercícios utilizando a técnica de Pomodoro
+App for exercises based in "The Pomodoro Technique".
 
 ## 🧪 Technologies
 
