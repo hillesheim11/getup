@@ -16,10 +16,10 @@ This project was developed using the following technologies:
 <div>
   <img alt="LoginPage" title="Login" src="https://github.com/hillesheim11/getup/blob/main/src/screenshots/login-page.png" width="49%"/>
   <img alt="FilledLoginPage" title="Login" src="https://github.com/hillesheim11/getup/blob/main/src/screenshots/filled-login-page.png"  width="49%"/>
-  <hr width="98%">
+  <hr width="99%">
   <img alt="HomePage" title="Home" src="https://github.com/hillesheim11/getup/blob/main/src/screenshots/home-challenge.png"  width="49%"/>
   <img alt="RunningCicle" title="Home" src="https://github.com/hillesheim11/getup/blob/main/src/screenshots/running-cicle.png"  width="49%"/>
-  <hr width="98%">
+  <hr width="99%">
   <img alt="FinishedCicle" title="Home" src="https://github.com/hillesheim11/getup/blob/main/src/screenshots/finished-cicle.png"  width="49%"/>
   <img alt="RankingPage" title="Ranking" src="https://github.com/hillesheim11/getup/blob/main/src/screenshots/ranking-page.png"  width="49%"/>
 </div>
